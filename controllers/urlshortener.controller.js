@@ -11,6 +11,13 @@ class UrlShortController {
     await UrlShortService.newShortUrl(req.body.fullUrl);
     res.redirect("/");
   };
+
+  getShortedURL = async (req, res) => {
+    const { id } = req.params;
+    const response = await UrlShortService.getShortedURL(id);
+
+    res.redirect(response);
+  };
 }
 
 module.exports = {
