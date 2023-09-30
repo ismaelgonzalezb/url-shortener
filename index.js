@@ -4,8 +4,10 @@ const { routeUrl } = require("./routes");
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/", routeUrl);
+app.use("/shorturls", routeUrl);
 
 const APP_PORT = process.env.APP_PORT || 9000;
 const MONGO_URI = process.env.MONGO_URI;
